@@ -1,0 +1,23 @@
+{
+  "name": "infinite-craft-proxy",
+  "version": "1.0.0",
+  "description": "Proxy server for Infinite Craft to handle OpenAI API calls",
+  "main": "proxy-server.js",
+  "scripts": {
+    "start": "node proxy-server.js",
+    "dev": "nodemon proxy-server.js"
+  },
+  "keywords": ["infinite-craft", "proxy", "openai"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
