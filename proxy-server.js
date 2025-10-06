@@ -136,16 +136,63 @@ CRITICAL RULES:
 6. Progress from simple → complex (basic elements create simple things, complex things create more complex things)
 7. Same inputs ALWAYS produce same output
 
+EMOJI SELECTION - THIS IS CRITICAL:
+Choose the MOST PRECISE and SPECIFIC emoji available. Avoid generic emojis when specific ones exist.
+
+EMOJI CATEGORIES AND EXAMPLES:
+🌊 Nature: 💧💦🌊🏔️⛰️🗻🌋🏖️🏝️⛱️🏜️🏞️🌅🌄🌠🌌⛅🌤️⛈️🌩️🌨️☃️⛄❄️💨🌪️🌫️🌈☀️🌞⭐💫✨🌟🌙🌛🌜
+🔥 Elements: 🔥💧🌍💨⚡☄️💥✨🌟⭐💫🔆🔅💡🕯️🪔
+🌱 Plants: 🌱🌿☘️🍀🌾🌲🌳🌴🎋🎍🌵🌾🌻🌺🌸🌼🌷🥀🏵️💐🌹🪴🍃🍂🍁
+🍎 Food: 🍎🍏🍊🍋🍌🍉🍇🍓🫐🍈🍒🍑🥭🍍🥥🥝🍅🥑🍆🥔🥕🌽🌶️🫑🥒🥬🥦🧄🧅🥜🌰
+🏗️ Buildings: 🏠🏡🏘️🏚️🏗️🏭🏢🏬🏣🏤🏥🏦🏨🏪🏫🏩💒🏛️⛪🕌🕍🛕🕋⛩️🗼🗽🏰🏯
+🌳 Nature Objects: 🪨🪵🌊🏔️⛰️🗻🌋💎💍🔮🪬🧿🔭🔬⚗️🧪🧫🧬🩺
+⚙️ Tools/Tech: 🔧🔨⚒️🛠️⛏️🪓🪚🔩⚙️🗜️⚖️🦯🔗⛓️🪝🧰🧲🪛🔫🗡️⚔️🛡️🪃🏹
+🎨 Objects: 🎨🖌️🖍️🖊️🖋️✏️📝📄📃📑📊📈📉🗒️🗓️📆📅🗂️📂📁💼🗃️
+⚡ Energy/Power: ⚡🔋🔌💡🕯️🪔🔦🏮🔥💥✨⭐🌟💫🌙☀️
+🏆 Achievements: 🏆🥇🥈🥉🏅🎖️🏵️🎗️🎫🎟️🎪🎭🎨🎬🎤🎧🎼🎹🥁🎷🎺🎸🪕
+💎 Valuable: 💎💍👑💰💴💵💶💷💸🪙💳🧾
+❤️ Emotions: ❤️🧡💛💚💙💜🖤🤍🤎💔❣️💕💞💓💗💖💘💝
+
+EMOJI SELECTION PRINCIPLES:
+1. SPECIFIC over GENERIC: Use 🌊 (ocean wave) instead of 💧 (droplet) for "Ocean"
+2. LITERAL over SYMBOLIC: For "Brick" use 🧱 not 🏠
+3. MATCH THE SCALE: Lake = 🏞️, Ocean = 🌊, Puddle = 💧
+4. CONSIDER CONTEXT: 
+   - Steam from heat = 💨
+   - Cloud in sky = ☁️
+   - Fog on ground = 🌫️
+5. BE CREATIVE WITH COMBINATIONS:
+   - Tree + Tree = Forest 🌲 (not 🌳, shows multiple)
+   - Sand + Sand = Desert 🏜️ (shows sandy landscape)
+   - Water + Earth = Swamp 🌿 (not just 💧)
+
+EXAMPLES OF GOOD EMOJI CHOICES:
+- Lake: 🏞️ (shows lake scene, not just 💧)
+- Mountain: 🏔️ (snowy peak, more specific than ⛰️)
+- Ocean: 🌊 (wave pattern, not single drop)
+- Volcano: 🌋 (exact match!)
+- Beach: 🏖️ (umbrella and beach scene)
+- Island: 🏝️ (palm tree on island)
+- Brick: 🧱 (actual brick pattern)
+- Rainbow: 🌈 (exact match)
+- Lightning: ⚡ (bolt shape)
+- Tornado: 🌪️ (spiral wind)
+- Avalanche: 🏔️❄️ (wait, use only ONE emoji, so: ❄️ for snow aspect)
+
 EXAMPLES OF GOOD COMBINATIONS:
-- Water + Fire → Steam (not "Hot Water")
-- Water + Earth → Mud (simple, intuitive)
-- Fire + Earth → Lava (follows logic)
-- Water + Water → Lake (combining same items scales up)
-- Steam + Steam → Cloud (logical progression)
-- Lake + Fire → Steam (water evaporates)
-- Mud + Fire → Brick (makes sense!)
-- Plant + Water → Garden (grows)
-- Metal + Fire → Sword (smithing)
+- Water + Fire → Steam {"name": "Steam", "emoji": "💨"}
+- Water + Earth → Mud {"name": "Mud", "emoji": "🟤"}
+- Fire + Earth → Lava {"name": "Lava", "emoji": "🌋"}
+- Water + Water → Lake {"name": "Lake", "emoji": "🏞️"}
+- Steam + Steam → Cloud {"name": "Cloud", "emoji": "☁️"}
+- Lake + Fire → Steam {"name": "Steam", "emoji": "💨"}
+- Mud + Fire → Brick {"name": "Brick", "emoji": "🧱"}
+- Sand + Sand → Desert {"name": "Desert", "emoji": "🏜️"}
+- Tree + Tree → Forest {"name": "Forest", "emoji": "🌲"}
+- Water + Sand → Beach {"name": "Beach", "emoji": "🏖️"}
+- Ocean + Fire → Salt {"name": "Salt", "emoji": "🧂"}
+- Rock + Pressure → Diamond {"name": "Diamond", "emoji": "💎"}
+- Tree + Wind → Leaf {"name": "Leaf", "emoji": "🍃"}
 
 PROGRESSION PRINCIPLE:
 - Basic elements (Water, Fire, Earth, Wind) → Simple materials (Steam, Mud, Smoke)
@@ -155,19 +202,20 @@ PROGRESSION PRINCIPLE:
 
 SAME ITEM COMBINATIONS:
 When combining same items, think about what happens when you have MORE of it:
-- Water + Water → Lake (more water)
-- Fire + Fire → Inferno (bigger fire)
-- Earth + Earth → Mountain (more earth)
-- Stone + Stone → Boulder (bigger stone)
-- Tree + Tree → Forest (multiple trees)
+- Water + Water → Lake 🏞️ (more water)
+- Fire + Fire → Inferno 🔥 (bigger fire)
+- Earth + Earth → Mountain 🏔️ (more earth)
+- Stone + Stone → Boulder 🪨 (bigger stone)
+- Tree + Tree → Forest 🌲 (multiple trees)
 
 THINK STEP BY STEP:
 1. What are these items physically/conceptually?
 2. What happens when they interact in real life?
 3. What's the simplest, most obvious result?
-4. Does this feel RIGHT to the player?
+4. What's the MOST PRECISE emoji for this result?
+5. Does this feel RIGHT to the player?
 
-Remember: ONE emoji only. Be intuitive. Make it fun!`
+Remember: ONE emoji only. Be PRECISE. Be intuitive. Make it fun!`
           },
           {
             role: 'user',
