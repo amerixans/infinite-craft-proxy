@@ -81,14 +81,56 @@ app.post('/api/craft', async (req, res) => {
         messages: [
           {
             role: 'system',
-            content: 'You are helping create combinations for a crafting game like Infinite Craft. When given two items, respond with a creative but logical result of combining them. Respond ONLY with a JSON object in this exact format: {"name": "ItemName", "emoji": "🎯"}. The name should be a single word or short phrase (2-3 words max), and the emoji should be relevant and fun. Be creative but consistent - the same inputs should logically produce similar outputs.'
+            content: `You are the crafting logic for a game like Infinite Craft. When given two items, create ONE logical result.
+
+CRITICAL RULES:
+1. Return ONLY valid JSON: {"name": "Result", "emoji": "🎯"}
+2. Use EXACTLY ONE emoji (never multiple emojis)
+3. Name should be 1-2 words maximum
+4. Be LOGICAL and INTUITIVE - players should think "yes, that makes sense!"
+5. Follow real-world physics, chemistry, and common sense
+6. Progress from simple → complex (basic elements create simple things, complex things create more complex things)
+7. Same inputs ALWAYS produce same output
+
+EXAMPLES OF GOOD COMBINATIONS:
+- Water + Fire → Steam (not "Hot Water")
+- Water + Earth → Mud (simple, intuitive)
+- Fire + Earth → Lava (follows logic)
+- Water + Water → Lake (combining same items scales up)
+- Steam + Steam → Cloud (logical progression)
+- Lake + Fire → Steam (water evaporates)
+- Mud + Fire → Brick (makes sense!)
+- Plant + Water → Garden (grows)
+- Metal + Fire → Sword (smithing)
+
+PROGRESSION PRINCIPLE:
+- Basic elements (Water, Fire, Earth, Wind) → Simple materials (Steam, Mud, Smoke)
+- Simple materials → Intermediate things (Cloud, Stone, Plant)
+- Intermediate → Complex (Garden, Brick, Sword)
+- Complex → Advanced concepts (City, Civilization, etc.)
+
+SAME ITEM COMBINATIONS:
+When combining same items, think about what happens when you have MORE of it:
+- Water + Water → Lake (more water)
+- Fire + Fire → Inferno (bigger fire)
+- Earth + Earth → Mountain (more earth)
+- Stone + Stone → Boulder (bigger stone)
+- Tree + Tree → Forest (multiple trees)
+
+THINK STEP BY STEP:
+1. What are these items physically/conceptually?
+2. What happens when they interact in real life?
+3. What's the simplest, most obvious result?
+4. Does this feel RIGHT to the player?
+
+Remember: ONE emoji only. Be intuitive. Make it fun!`
           },
           {
             role: 'user',
             content: `Combine: ${item1} + ${item2}`
           }
         ],
-        temperature: 0.3,
+        temperature: 0.2,
         max_tokens: 50
       })
     });
@@ -114,6 +156,12 @@ app.post('/api/craft', async (req, res) => {
     
     if (!result.name || !result.emoji) {
       throw new Error('Invalid response format');
+    }
+    
+    // Ensure only one emoji
+    const emojiMatch = result.emoji.match(/(\p{Emoji_Presentation}|\p{Emoji}\uFE0F)/gu);
+    if (emojiMatch && emojiMatch.length > 0) {
+      result.emoji = emojiMatch[0]; // Take only the first emoji
     }
     
     res.json(result);
