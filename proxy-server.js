@@ -9,6 +9,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// In-memory discovery tracking (resets on server restart)
+// In production, you'd use a database like Redis or PostgreSQL
+const discoveryTracker = new Map();
+
 // Health check endpoint
 app.get('/', (req, res) => {
   res.json({ 
@@ -16,9 +20,49 @@ app.get('/', (req, res) => {
     message: 'Infinite Craft Proxy Server',
     endpoints: {
       craft: 'POST /api/craft',
-      test: 'POST /api/test'
+      test: 'POST /api/test',
+      trackDiscovery: 'POST /api/track-discovery',
+      discoveryCount: 'GET /api/discovery-count/:item'
     }
   });
+});
+
+// Track discovery endpoint
+app.post('/api/track-discovery', async (req, res) => {
+  const { item } = req.body;
+  
+  if (!item) {
+    return res.status(400).json({ error: 'item is required' });
+  }
+
+  try {
+    const itemKey = item.toLowerCase();
+    const currentCount = discoveryTracker.get(itemKey) || 0;
+    discoveryTracker.set(itemKey, currentCount + 1);
+    
+    res.json({ 
+      success: true, 
+      count: currentCount + 1 
+    });
+  } catch (error) {
+    console.error('Track discovery error:', error);
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Get discovery count endpoint
+app.get('/api/discovery-count/:item', async (req, res) => {
+  const { item } = req.params;
+  
+  try {
+    const itemKey = decodeURIComponent(item).toLowerCase();
+    const count = discoveryTracker.get(itemKey) || 0;
+    
+    res.json({ count });
+  } catch (error) {
+    console.error('Get discovery count error:', error);
+    res.status(500).json({ error: error.message });
+  }
 });
 
 // Test endpoint
